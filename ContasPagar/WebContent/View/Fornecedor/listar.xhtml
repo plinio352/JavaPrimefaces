@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:dataTable id="listagem_fornecedor" value="#{forBean.dmfor}" var="forDados"
+				paginator="true" rows="20"  
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                rowsPerPageTemplate="2,5,10,15,30">
+                 
+				<p:column headerText="Código">
+					<h:outputText value="#{forDados.id}"></h:outputText>				
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{forDados.nome}"></h:outputText>				
+				</p:column>
+				<p:column headerText="Endereço">
+					<h:outputText value="#{forDados.endereco}"></h:outputText>				
+				</p:column>
+				<p:column headerText="Telefone">
+					<h:outputText value="#{forDados.telefone}"></h:outputText>				
+				</p:column>
+				<p:column headerText="Obs">
+					<h:outputText value="#{forDados.obs}"></h:outputText>				
+				</p:column>
+				<p:column headerText="Editar">
+					<p:commandButton value="[EDITAR]" action="editar" actionListener="#{forBean.selecionaFor}"></p:commandButton>				
+				</p:column>
+				<p:column headerText="Apagar">
+					<p:commandButton value="[APAGAR]" actionListener="#{forBean.delete}" update="listagem_fornecedor">
+						<p:confirm header="Exclusão de Fornecedor" message="Deseja excluir este fornecedor?"></p:confirm>
+					</p:commandButton>				
+				</p:column>
+			</p:dataTable>
+			
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+				<p:commandButton value="SIM" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+				<p:commandButton value="NÃO" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+			</p:confirmDialog>
+			<p:commandButton value="Novo" actionListener="#{forBean.novo}" ajax="false" action="incluir?faces-redirect=true"></p:commandButton>
+		</h:form>	
+	</h:body>
+</html>

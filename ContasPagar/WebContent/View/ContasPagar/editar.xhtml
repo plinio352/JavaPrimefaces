@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+
+<h:body>
+	<p:panel header="Atualizar de Contas Pagar"
+		footer="Desenvolvido por Plinio P.S">
+		<h:form>
+			<h:outputLabel value="Descrição:"></h:outputLabel>
+			<br />
+			<p:inputText id="descricao" value="#{CtPgBean.cp.descricao}"></p:inputText>
+			<br />
+			<br />
+			<h:outputLabel value="Data de Vencimento:"></h:outputLabel>
+			<br />
+			<p:calendar id="data" value="#{CtPgBean.cp.data_venc}" locale="pt" converter="converteData"></p:calendar>
+			<br />
+			<br />
+			<h:outputLabel value="Valor:"></h:outputLabel>
+			<br />
+			<p:inputText id="valor" value="#{CtPgBean.cp.valor}"></p:inputText>
+			<br />
+			<br />
+			<h:outputLabel value="Fornecedor:"></h:outputLabel>
+			<br />
+			<p:selectOneMenu id="selecionaFornecedor" value="#{CtPgBean.idFornecedor}">
+				<f:selectItems value="#{CtPgBean.carregarFornecedores}"></f:selectItems>
+			</p:selectOneMenu>
+			<br />
+			<br />
+			<p:commandButton value="Cadastrar"
+				actionListener="#{CtPgBean.update}" 
+				ajax="false"
+				action="listar?faces-redirect=true"></p:commandButton>
+			<p:commandButton value="Cancelar" 
+				ajax="false" 
+				action="listar?faces-redirect=true"></p:commandButton>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>

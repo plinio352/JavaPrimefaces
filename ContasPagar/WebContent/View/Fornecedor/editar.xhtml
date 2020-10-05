@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	</h:head>
+	
+	<h:body>
+		<p:panel header="Atualiza de Fornecedor" footer="Desenvolvido por Plinio P.S">
+			<h:form>
+				<h:outputLabel value="Nome:"></h:outputLabel><br/>
+				<p:inputText id="nome" value="#{forBean.f.nome}"></p:inputText>	 
+	
+				<br/>
+				<h:outputLabel value="Telefone:"></h:outputLabel><br/>
+				<p:inputMask mask="(99) 9999-9999" id="telefone" value="#{forBean.f.telefone}" ></p:inputMask>	
+	
+				<br/>
+				<h:outputLabel value="Endereço:"></h:outputLabel><br/>
+				<p:inputText id="endereco" value="#{forBean.f.endereco}"></p:inputText>	
+	
+				<br/>
+				<h:outputLabel value="Obs:"></h:outputLabel><br/>
+				<p:editor id="obs" value="#{forBean.f.obs}" width="400"></p:editor>
+				
+				<br/><br/>
+				<p:commandButton value="Atualiza" actionListener="#{forBean.updateFornecedor}" ajax="false" action="lista?faces-redirect=true"></p:commandButton>	
+			</h:form>
+		</p:panel>
+		
+	</h:body>
+</html>
