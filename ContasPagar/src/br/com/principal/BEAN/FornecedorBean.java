@@ -17,7 +17,17 @@ public class FornecedorBean {
 	private FornecedorDao dao = new FornecedorDao();
 	private DataModel<Fornecedor> dmfor;
 	private String retorno = "erro";
+	private String msgErro;
+
 	
+	public String getMsgErro() {
+		return msgErro;
+	}
+
+	public void setMsgErro(String msgErro) {
+		this.msgErro = msgErro;
+	}
+
 	public void novo(){
 		f = new Fornecedor();
 	}
@@ -32,7 +42,7 @@ public class FornecedorBean {
 			dao.update(f);
 			this.retorno = "lista";
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
+			this.msgErro = e.getMessage();			
 		}
 		
 		return retorno;
@@ -46,7 +56,7 @@ public class FornecedorBean {
 			dao.delete(f);
 			this.retorno = "lista";
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
+			this.msgErro = e.getMessage();			
 		}
 		
 		return retorno;
@@ -59,7 +69,7 @@ public class FornecedorBean {
 			dao.salvar(f);
 			this.retorno = "lista";
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
+			this.msgErro = e.getMessage();			
 		}
 		
 		return retorno;
@@ -81,7 +91,7 @@ public class FornecedorBean {
 			dmfor = new ListDataModel<Fornecedor>(lst);
 			
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
+			this.msgErro = e.getMessage();			
 		}
 		
 		return dmfor;

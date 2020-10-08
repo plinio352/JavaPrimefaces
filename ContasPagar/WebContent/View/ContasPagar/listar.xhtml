@@ -45,7 +45,7 @@
 				<p:commandButton value="[EDITAR]" action="editar" actionListener="#{CtPgBean.selecionaCP}"></p:commandButton>				
 			</p:column>
 			<p:column headerText="Apagar">
-				<p:commandButton value="[APAGAR]" actionListener="#{CtPgBean.delete}" update="lstCP">
+				<p:commandButton value="[APAGAR]" action="#{CtPgBean.delete}" update="lstCP">
 					<p:confirm header="Exclusão de Contas Pagar" message="Deseja excluir este Contas Pagar?"></p:confirm>
 				</p:commandButton>				
 			</p:column>

@@ -1,0 +1,67 @@
+@CHARSET "ISO-8859-1";
+.estilo_campo {
+	font-family: Arial;
+	font-size: 18px;
+	color: #ffffff;
+	background-color: #c0c0c0;
+	width: 300px;
+	border: none;
+}
+
+.button {
+	font-family: Arial;
+	font-size: 18px;
+	color: #ffffff;
+	background-color: #c0c0c0;
+}
+
+.erros00 {
+	font-family: Arial;
+	font-size: 18px;
+	color: red;
+	font-weight: bold;
+		
+}
+.erros01 {
+	font-family: Arial;
+	font-size: 18px;
+	color: black;
+		
+}
+
+.titulo {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.header {
+	font-family: Arial;
+	font-size: 14px;
+	color: yellow;
+	background-color: red;
+	padding: 5px;
+}
+
+.listagem{
+	width: 100%;
+	border-color: black;
+	border-width: 2px;
+	border-bottom-style: solid;
+	background-color: white;
+}
+
+.linha1{
+	font-family: Arial;
+	font-size: 12px;
+	color: black;
+	background-color: white;
+	padding: 5px; 
+}
+
+.linha2{
+	font-family: Arial;
+	font-size: 12px;
+	color: white;
+	background-color: gray;
+	padding: 5px; 
+}

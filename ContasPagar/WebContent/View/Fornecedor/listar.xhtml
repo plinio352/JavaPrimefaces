@@ -37,7 +37,7 @@
 					<p:commandButton value="[EDITAR]" action="editar" actionListener="#{forBean.selecionaFor}"></p:commandButton>				
 				</p:column>
 				<p:column headerText="Apagar">
-					<p:commandButton value="[APAGAR]" actionListener="#{forBean.delete}" update="listagem_fornecedor">
+					<p:commandButton value="[APAGAR]" action="#{forBean.delete}" update="listagem_fornecedor">
 						<p:confirm header="Exclusão de Fornecedor" message="Deseja excluir este fornecedor?"></p:confirm>
 					</p:commandButton>				
 				</p:column>

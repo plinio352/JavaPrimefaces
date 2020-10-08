@@ -30,7 +30,7 @@
 				<p:editor id="obs" value="#{forBean.f.obs}" width="400"></p:editor>
 				
 				<br/><br/>
-				<p:commandButton value="Cadastrar" actionListener="#{forBean.insert}" ajax="false" action="listar?faces-redirect=true"></p:commandButton>	
+				<p:commandButton value="Cadastrar" action="#{forBean.insert}"></p:commandButton>	
 				<p:commandButton value="Cancelar" ajax="false" action="lista?faces-redirect=true"></p:commandButton>	
 			</h:form>
 		</p:panel>

@@ -23,8 +23,18 @@ public class ContasPagarBean {
 	private FornecedorDao forDao = new FornecedorDao();
 	private DataModel<ContasPagar> dmCp;
 	private String retorno = "erro";
+	private String msgErro;
 	private int idFornecedor;
 	
+	
+	public String getMsgErro() {
+		return msgErro;
+	}
+
+	public void setMsgErro(String msgErro) {
+		this.msgErro = msgErro;
+	}
+
 	public void novo(){
 		this.cp = new ContasPagar();
 	}
@@ -40,7 +50,7 @@ public class ContasPagarBean {
 			this.retorno = "listar";
 			
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());			
+			this.msgErro = e.getMessage();			
 		}
 		return this.retorno;
 	}
@@ -52,7 +62,7 @@ public class ContasPagarBean {
 			this.retorno = "listar";
 			
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
+			this.msgErro = e.getMessage();
 		}
 		return this.retorno;
 	}
@@ -63,11 +73,11 @@ public class ContasPagarBean {
 			this.cp.setFornecedor(forDao.getReg(idFornecedor));			
 			this.dao.salvar(cp);
 			this.retorno = "listar";
-			//throw new Exception("teste envio exception!");
+			throw new Exception("PPS, teste envio exception!");
 			
 		} catch (Exception e) {
-			System.out.println("ERRO: " + e.getMessage());
-			//this.retorno = retorno +"?msg="+e.getMessage();
+			this.retorno = "erro";
+			this.msgErro = e.getMessage();
 		}
 		return this.retorno;
 	}
@@ -85,7 +95,7 @@ public class ContasPagarBean {
 			List<ContasPagar> lst = this.dao.getLista();
 			this.dmCp = new ListDataModel<ContasPagar>(lst);
 		} catch (Exception e) {
-			System.out.println("ERRI: " + e.getMessage());
+			this.msgErro = e.getMessage();
 		}
 		return dmCp;
 	}
